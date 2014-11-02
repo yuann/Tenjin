@@ -1,0 +1,35 @@
+.navbar {
+  min-height: 35px }
+
+.navbar-brand {
+  height: 35px;
+  padding: 8px 15px; }
+
+.markdown {
+  padding: 0px 20px 10px 20px; }
+
+.markdown h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  font-weight: bold; }
+
+.markdown h1 {
+  font-size: 28px;
+  color: black; }
+
+.markdown h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+.markdown h3 {
+  font-size: 18px; }
+
+.markdown h4 {
+  font-size: 16px; }
+
+.markdown h5 {
+  font-size: 14px; }
+
+.markdown h6 {
+  color: #777777;
+  font-size: 14px; }

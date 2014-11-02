@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@Model.Title</title>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="~/Content/css/tenjin-style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="~/"><strong>天神</strong> Tenjin</a>
+        </div>
+    </nav>
+    <div id="content" class="markdown">@Model.Content</div>
+
+    <script src="~/Content/js/jquery-1.11.1.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/marked.js"></script>
+    <script>
+        $(function () {
+            $(".markdown").each(function () {
+                $(this).html(marked($(this).text()));
+            });
+        });
+    </script>
+</body>
+</html>
