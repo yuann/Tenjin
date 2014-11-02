@@ -17,6 +17,7 @@ namespace Tenjin
 
             Get["/"] = _ =>
             {
+                ViewBag.title = siteName;
                 model.Title = siteName;
                 model.Content = GetDirContent(home);
                 return View["Views/Markdown", model];
@@ -24,14 +25,15 @@ namespace Tenjin
 
             Get["/{file*}"] = _ =>
             {
+                ViewBag.title = siteName;
                 string originalPath = Path.Combine(home, _.file);
+                model.Title = siteName + " - " + Path.GetFileNameWithoutExtension(originalPath);
                 if (Directory.Exists(originalPath))
                 {
                     model.Content = GetDirContent(home, _.file);
                 }
                 else
                 {
-                    model.Title = siteName + " - " + Path.GetFileNameWithoutExtension(originalPath);
                     var mdPath = originalPath + ".md";
                     if (File.Exists(mdPath))
                     {
