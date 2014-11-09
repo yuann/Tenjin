@@ -2,10 +2,10 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@Model.Title</title>
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="~/Content/css/tenjin-style.css" rel="stylesheet">
+    <base href="@Model.Url" />
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -18,11 +18,29 @@
     <script src="~/Content/js/jquery-1.11.1.min.js"></script>
     <script src="~/Content/js/bootstrap.min.js"></script>
     <script src="~/Content/js/marked.js"></script>
+    <!--[if lt IE 9]>
+      <script src="~/Content/js/html5shiv.min.js"></script>
+    <![endif]-->
+
     <script>
         $(function () {
             $(".markdown").each(function () {
                 $(this).html(marked($(this).text()));
             });
+
+            @*$(".markdown a").each(function () {
+                var replace = null;
+                var replace = $(this).attr('href').replace(/^/g,'@Model.Url');
+                $(this).attr('href',replace);
+
+            });
+
+            $(".markdown img").each(function () {
+                var replace = null;
+                var replace = $(this).attr('src').replace(/^/g, '@Model.Url');
+                $(this).attr('src', replace);
+
+            });*@
         });
     </script>
 </body>

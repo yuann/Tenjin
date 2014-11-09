@@ -82,10 +82,12 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\github.css" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\html5shiv.min.js" />
     <Content Include="Content\js\jquery-1.11.1.min.js" />
     <Content Include="Content\js\marked.js" />
     <Content Include="packages.config" />
     <Content Include="Views\Markdown.cshtml" />
+    <Content Include="Content\md\test.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -129,7 +131,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55128</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55128/</IISUrl>
+          <IISUrl>http://localhost:55128/Tenjin/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

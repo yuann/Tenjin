@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Tenjin
 {
@@ -20,6 +21,7 @@ namespace Tenjin
                 ViewBag.title = siteName;
                 model.Title = siteName;
                 model.Content = GetDirContent(home);
+                model.Url = VirtualPathUtility.AppendTrailingSlash(Request.Url);
                 return View["Views/Markdown", model];
             };
 
@@ -28,9 +30,11 @@ namespace Tenjin
                 ViewBag.title = siteName;
                 string originalPath = Path.Combine(home, _.file);
                 model.Title = siteName + " - " + Path.GetFileNameWithoutExtension(originalPath);
+                var basePath = Request.Url;
                 if (Directory.Exists(originalPath))
                 {
                     model.Content = GetDirContent(home, _.file);
+                    model.Url = VirtualPathUtility.AppendTrailingSlash(basePath);
                 }
                 else
                 {
@@ -43,6 +47,8 @@ namespace Tenjin
                     {
                         model.Content = "Markdownファイルが見つかりませんでした。";
                     }
+
+                    model.Url = basePath;
                 }
 
                 return View["Views/Markdown", model];
@@ -54,15 +60,17 @@ namespace Tenjin
             var originalPath = dir == null ? home : Path.Combine(home, dir);
             var dirs = Directory.GetDirectories(originalPath)
                 .Select(x => Path.GetFileName(x))
-                .Select(x => string.Format("- <i class=\"glyphicon glyphicon-folder-close\"></i> [{0}]({1})", x, CombinePath(dir, x)));
+                .Select(x => string.Format("- <i class=\"glyphicon glyphicon-folder-close\"></i> [{0}]({0})", x));
 
             var files = Directory.GetFiles(originalPath, "*.md")
                 .Select(x => Path.GetFileNameWithoutExtension(x))
-                .Select(x => string.Format("- [{0}]({1})", x, CombinePath(dir, x)));
+                .Select(x => string.Format("- [{0}]({0})", x));
 
             var sb = new System.Text.StringBuilder();
             if (dir != null)
             {
+                sb.AppendLine(VirtualPathUtility.AppendTrailingSlash(dir));
+                sb.AppendLine();
                 sb.AppendLine("- [..](../)");
             }
 
@@ -70,11 +78,5 @@ namespace Tenjin
             sb.AppendLine(string.Join(Environment.NewLine, files));
             return sb.ToString();
         }
-
-        string CombinePath(string path1, string path2)
-        {
-            return path1 == null ? path2 : Path.Combine(path1, path2);
-        }
-           
     }
 }
