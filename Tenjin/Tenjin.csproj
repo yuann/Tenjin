@@ -80,11 +80,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\bootstrap.min.css" />
-    <Content Include="Content\css\github.css" />
+    <Content Include="Content\css\tenjin-style.css" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\html5shiv.min.js" />
     <Content Include="Content\js\jquery-1.11.1.min.js" />
     <Content Include="Content\js\marked.js" />
+    <Content Include="Content\js\respond.min.js" />
     <Content Include="packages.config" />
     <Content Include="Views\Markdown.cshtml" />
     <Content Include="Content\md\test.md" />
