@@ -81,6 +81,7 @@
   <ItemGroup>
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\tenjin-style.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\html5shiv.min.js" />
     <Content Include="Content\js\jquery-1.11.1.min.js" />
@@ -89,6 +90,9 @@
     <Content Include="packages.config" />
     <Content Include="Views\Markdown.cshtml" />
     <Content Include="Content\md\test.md" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -114,9 +118,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="TenjinModule.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\fonts\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

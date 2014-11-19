@@ -66,17 +66,19 @@ namespace Tenjin
                 .Select(x => Path.GetFileNameWithoutExtension(x))
                 .Select(x => string.Format("- [{0}]({0})", x));
 
+            var dest = new List<string>();
+
             var sb = new System.Text.StringBuilder();
             if (dir != null)
             {
-                sb.AppendLine(VirtualPathUtility.AppendTrailingSlash(dir));
-                sb.AppendLine();
-                sb.AppendLine("- [..](../)");
+                dest.Add(VirtualPathUtility.AppendTrailingSlash(dir));
+                dest.Add("");
+                dest.Add("- [..](../)");
             }
 
-            sb.AppendLine(string.Join(Environment.NewLine, dirs));
-            sb.AppendLine(string.Join(Environment.NewLine, files));
-            return sb.ToString();
+            dest.AddRange(dirs);
+            dest.AddRange(files);
+            return string.Join(Environment.NewLine, dest);
         }
     }
 }
