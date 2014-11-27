@@ -20,7 +20,17 @@ namespace Tenjin
             {
                 ViewBag.title = siteName;
                 model.Title = siteName;
-                model.Content = GetDirContent(home);
+
+                var mdPath = Path.Combine(home, "index.md");
+                if (File.Exists(mdPath))
+                {
+                    model.Content = File.ReadAllText(mdPath);
+                }
+                else
+                {
+                    model.Content = GetDirContent(home);
+                }
+
                 model.Url = VirtualPathUtility.AppendTrailingSlash(Request.Url);
                 return View["Views/Markdown", model];
             };
