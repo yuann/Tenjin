@@ -87,6 +87,7 @@
     <Content Include="Content\js\jquery-1.11.1.min.js" />
     <Content Include="Content\js\marked.js" />
     <Content Include="Content\js\respond.min.js" />
+    <Content Include="Content\js\tenjin.js" />
     <Content Include="packages.config" />
     <Content Include="Views\Markdown.cshtml" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />

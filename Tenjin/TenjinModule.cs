@@ -61,6 +61,7 @@ namespace Tenjin
                     model.Url = basePath;
                 }
 
+                model.Breadcrumbs = GetBreadcrumbs(_.file);
                 return View["Views/Markdown", model];
             };
         }
@@ -77,18 +78,39 @@ namespace Tenjin
                 .Select(x => string.Format("- [{0}]({0})", x));
 
             var dest = new List<string>();
-
-            var sb = new System.Text.StringBuilder();
-            if (dir != null)
-            {
-                dest.Add(VirtualPathUtility.AppendTrailingSlash(dir));
-                dest.Add("");
-                dest.Add("- [..](../)");
-            }
-
             dest.AddRange(dirs);
             dest.AddRange(files);
             return string.Join(Environment.NewLine, dest);
+        }
+
+        IEnumerable<MarkdownModel.Breadcrumb> GetBreadcrumbs(string virtualPath)
+        {
+            return GetBreadcrumbsReverse(virtualPath).Reverse();
+        }
+
+        IEnumerable<MarkdownModel.Breadcrumb> GetBreadcrumbsReverse(string virtualPath)
+        {
+            var active = true;
+            var dir = virtualPath;
+            while (!string.IsNullOrEmpty(dir))
+            {
+                var fileName = Path.GetFileName(dir);
+                if (string.IsNullOrEmpty(fileName))
+                {
+                    break;
+                }
+
+                yield return new MarkdownModel.Breadcrumb()
+                {
+                    Href = VirtualPathUtility.ToAbsolute("~/" + dir),
+                    Name = fileName,
+                    Active = active
+                };
+                active = false;
+                dir = Path.GetDirectoryName(dir);
+            }
+
+            yield break;
         }
     }
 }
