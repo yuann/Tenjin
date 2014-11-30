@@ -1,68 +1,93 @@
 .navbar {
-  min-height: 35px;
+    min-height: 35px;
 }
 
 .navbar-brand {
-  height: 35px;
-  padding: 8px 15px;
+    height: 35px;
+    padding: 8px 15px;
 }
 
 .markdown {
-  padding: 0px 20px 10px 20px;
+    padding: 0px 20px 10px 20px;
 }
 
 .markdown h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  font-weight: bold;
+    margin: 20px 0 10px;
+    font-weight: bold;
 }
 
 .markdown h1 {
-  font-size: 28px;
-  color: black;
+    font-size: 28px;
+    color: black;
 }
 
 .markdown h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #cccccc;
-  color: black;
+    font-size: 24px;
+    border-bottom: 1px solid #cccccc;
+    color: black;
 }
 
 .markdown h3 {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .markdown h4 {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 .markdown h5 {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .markdown h6 {
-  color: #777777;
-  font-size: 14px;
+    color: #777777;
+    font-size: 14px;
 }
 
+.markdown table {
+  padding: 0; }
+  .markdown table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    .markdown table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    .markdown table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    .markdown table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    .markdown table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    .markdown table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
 .breadcrumb {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 #page-top{
-  display: block;
-  position: fixed;
-  z-index: 9999;
-  bottom: -60px;
-  right: 10px;
-  width: 40px;
-  padding: 8px 10px;
-  background: rgba(0,0,0,.7);
-  color: #fff;
-  text-align: center;
-  text-decoration: none;
-  transition: .5s;
+    display: block;
+    position: fixed;
+    z-index: 9999;
+    bottom: -60px;
+    right: 10px;
+    width: 40px;
+    padding: 8px 10px;
+    background: rgba(0,0,0,.7);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    transition: .5s;
 }
 
 #page-top:hover{ 
-  background: rgba(0,0,0,.8);
+    background: rgba(0,0,0,.8);
 }
