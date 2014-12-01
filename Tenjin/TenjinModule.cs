@@ -10,10 +10,16 @@ namespace Tenjin
     public class TenjinModule : Nancy.NancyModule
     {
         readonly string siteName = Properties.Settings.Default.SiteName;
+        readonly string tenjinHome = Properties.Settings.Default.TenjinHome;
 
         public TenjinModule()
         {
-            var home = HttpContext.Current.Server.MapPath("~/Content/md");
+            var home = tenjinHome;
+            if (string.IsNullOrWhiteSpace(tenjinHome))
+            {
+                home = HttpContext.Current.Server.MapPath("~/Content/md");
+            }
+
             var model = new MarkdownModel();
 
             Get["/"] = _ =>

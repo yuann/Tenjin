@@ -31,5 +31,14 @@ namespace Tenjin.Properties {
                 return ((string)(this["SiteName"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TenjinHome {
+            get {
+                return ((string)(this["TenjinHome"]));
+            }
+        }
     }
 }
