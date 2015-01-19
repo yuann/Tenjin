@@ -80,3 +80,11 @@ if (true)
   <li>item</li>
   <li>item</li>
 </ul>
+
+## 絵文字
+- :warning: `:warning:`
+- :+1: `:+1:`
+- :thumbsup: `:thumbsup:`
+- :memo: `:memo:`
+- :aaaa: `:aaaa:`
+- :u5272: `:u5272:`

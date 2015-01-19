@@ -77,10 +77,12 @@ namespace Tenjin
             var originalPath = dir == null ? home : Path.Combine(home, dir);
             var dirs = Directory.GetDirectories(originalPath)
                 .Select(x => Path.GetFileName(x))
+                .Where(x => !x.StartsWith("."))
                 .Select(x => string.Format("- <i class=\"glyphicon glyphicon-folder-close\"></i> [{0}]({0})", x));
 
             var files = Directory.GetFiles(originalPath, "*.md")
                 .Select(x => Path.GetFileNameWithoutExtension(x))
+                .Where(x => !x.StartsWith("."))
                 .Select(x => string.Format("- [{0}]({0})", x));
 
             var dest = new List<string>();

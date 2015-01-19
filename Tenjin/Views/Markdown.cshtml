@@ -45,11 +45,26 @@
     <script src="~/Content/js/jquery-1.11.1.min.js"></script>
     <script src="~/Content/js/bootstrap.min.js"></script>
     <script src="~/Content/js/marked.js"></script>
+    <script src="~/Content/js/emoji.js"></script>
     <script src="~/Content/js/tenjin.js"></script>
     <script>
         $(function () {
             $(".markdown").each(function () {
-                $(this).html(marked($(this).find("textarea").text()));
+                var data = $(this).find("textarea").text();
+                var mdToHtml = marked(data);
+
+                var emojiFolder = '@Url.Content("~/Content/images/twemoji")';
+                var emojified = emoji(mdToHtml, emojiFolder, 20);
+
+                var tmp = $(emojified);
+                tmp.find('pre img').each(function () {
+                    $(this).replaceWith($(this).attr('title'));
+                });
+                tmp.find('code img').each(function () {
+                    $(this).replaceWith($(this).attr('title'));
+                });
+
+                $(this).html(tmp);
             });
         });
     </script>
